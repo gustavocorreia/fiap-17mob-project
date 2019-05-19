@@ -16,7 +16,7 @@ btnEntrar.addEventListener('click', function(e){
     }
 
     firebase.auth().signInWithEmailAndPassword(txtEmail.value, txtSenha.value)
-            .then(function (firebaseUser) {
+            .then(function (usuario) {
                 window.location = "inicio.html" 
             })
             .catch(function (exception) {
