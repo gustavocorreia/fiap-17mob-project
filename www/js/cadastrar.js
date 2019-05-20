@@ -59,6 +59,8 @@ btnEntrar.addEventListener('click', function(){
             .createUserWithEmailAndPassword(txtEmail.value, txtSenha)
             .then(function(usuario){
 
+            }).catch(function(error){
+                
             });
 
 });
