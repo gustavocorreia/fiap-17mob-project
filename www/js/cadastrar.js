@@ -11,14 +11,38 @@ btnEntrar.addEventListener('click', function(){
     var txtSenha = document.getElementById('txtSenha');
     var txtConfirmeSenha = document.getElementById('txtConfirmeSenha');
 
+
+
+    if(txtNome.value == ''){
+        txtNome.focus();
+        return;
+    }
+
     if(txtEmail.value == ''){
         txtEmail.focus();
+        return;
+    }
+
+
+    if(txtCPF.value == ''){
+        txtCPF.focus();
         return;
     }
 
     if(txtSenha.value == ''){
         txtSenha.focus();
         return;
+    }
+
+    if(txtDataNascimento.value == ''){
+        txtDataNascimento.focus();
+        return;
+    }
+
+    if(txtTelefone.focus() == ''){
+        txtTelefone.focus();
+        retu
+    
     }
 
     if(txtConfirmeSenha.value == ''){
