@@ -41,7 +41,7 @@ btnEntrar.addEventListener('click', function(){
 
     if(txtTelefone.focus() == ''){
         txtTelefone.focus();
-        retu
+        return;
     
     }
 
@@ -54,5 +54,11 @@ btnEntrar.addEventListener('click', function(){
         txtSenha.focus();
         return;
     }
+
+    firebase.auth()
+            .createUserWithEmailAndPassword(txtEmail.value, txtSenha)
+            .then(function(usuario){
+
+            });
 
 });
