@@ -1,5 +1,5 @@
 // Required for side-effects
-require("firebase/firestore");
+//require("firebase/firestore");
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -13,5 +13,5 @@ var firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
+var appFirebase = firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore(appFirebase);

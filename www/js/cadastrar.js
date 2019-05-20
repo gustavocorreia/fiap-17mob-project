@@ -60,7 +60,18 @@ btnEntrar.addEventListener('click', function(){
             .then(function(usuario){
 
             }).catch(function(error){
-                
+
             });
 
 });
+
+function completarCadastro(usuario, id){
+    db.collection('users').doc(id).set(usuario)
+                          .then(function() {
+                            console.log("Usuário cadastrado com sucesso!");
+                            
+                        })
+                        .catch(function(error) {
+                            console.error("Erro ao cadastrar usuário: ", error);
+                        });
+}
