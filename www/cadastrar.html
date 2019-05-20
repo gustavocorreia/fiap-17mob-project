@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+        <title>Cadastrar Usuários - Pokémon APP</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>Cadastrar Usuário</h1>
+
+            <form>
+                <div class="form-group">
+                    <label id="lblNome" for="txtNome">Nome Completo</label>
+                    <input type="text" class="form-control" id="txtNome" required />
+                </div>
+    
+                <div class="form-group">
+                    <label id="lblEmail" for="txtEmail">E-mail</label>
+                    <input type="email" class="form-control" id="txtEmail" required />
+                </div>
+
+                <div class="form-group">
+                    <label id="lblCPF" for="txtCPF">CPF</label>
+                    <input type="text" class="form-control" id="txtCPF" required />
+                </div>
+
+                <div class="form-group">
+                    <label id="lblDataNascimento" for="txtDataNascimento">Data de Nasc.</label>
+                    <input type="date" class="form-control" id="txtDataNascimento" required />
+                </div>
+
+                <div class="form-group">
+                    <label id="lblTelefone" for="txtTelefone">Telefone</label>
+                    <input type="tel" class="form-control" id="txtTelefone" required />
+                </div>
+
+                <div class="form-group">
+                    <label id="lblSenha" for="txtSenha">Senha</label>
+                    <input type="password" class="form-control" id="txtSenha" required />
+                </div>
+
+                <div class="form-group">
+                    <label id="lblConfirmeSenha" for="txtConfirmeSenha">Confirme a sua senha</label>
+                    <input type="password" class="form-control" id="txtConfirmeSenha" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="btnEntrar">Entrar</button>
+            </form>
+            
+        </div>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#config-web-app -->
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/jquery-3.4.0.slim.min.js"></script>
+        <script type="text/javascript" src="js/popper.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/cadastrar.js"></script>
+    </body>
+</html>

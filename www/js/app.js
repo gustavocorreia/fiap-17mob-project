@@ -1,3 +1,6 @@
+// Required for side-effects
+require("firebase/firestore");
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyCVPUdC5qCv1-gd_fzn672kXtu648XvadY",
@@ -11,3 +14,4 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
