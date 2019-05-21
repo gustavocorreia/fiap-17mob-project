@@ -1,6 +1,23 @@
 import { S_IFMT } from "constants";
 
 var btnEntrar = document.getElementById('btnEntrar');
+var btnTirarFoto = document.getElementById('btnTirarFoto');
+
+btnTirarFoto.addEventListener('click', function(){
+    navigator.camera.getPicture(onSuccess, onError, {  
+        quality: 50, 
+        destinationType: Camera.DestinationType.DATA_URL 
+    });
+
+    function onSuccess(dadosImagem){
+        var imgFotoPerfil = document.getElementById('imgFotoPerfil');
+        imgFotoPerfil.src = `data:image/jpeg;base64,${dadosImagem}`; 
+    }
+
+    function onError(message){
+        alert(`Erro: ${message}`);
+    }
+});
 
 btnEntrar.addEventListener('click', function(){
     var txtNome = document.getElementById('txtNome');
@@ -51,16 +68,26 @@ btnEntrar.addEventListener('click', function(){
     }
 
     if(txtSenha.value != txtConfirmeSenha.value){
+        alert("Senhas divergentes!");
         txtSenha.focus();
         return;
     }
 
     firebase.auth()
             .createUserWithEmailAndPassword(txtEmail.value, txtSenha)
-            .then(function(usuario){
-
+            .then(function(user){
+                var usuario = {
+                    cpf: txtCPF.value,
+                    data_de_nascimento: txtDataNascimento.value,
+                    email_altenativo: '',
+                    nome: txtNome.value,
+                    telefone: txtTelefone.value 
+                };
+                completarCadastro(usuario, user.uid);
+                salvarImagem(user.uid);
+                window.location.href = inicio.html;
             }).catch(function(error){
-
+                console.log(error);
             });
 
 });
@@ -68,10 +95,14 @@ btnEntrar.addEventListener('click', function(){
 function completarCadastro(usuario, id){
     db.collection('users').doc(id).set(usuario)
                           .then(function() {
-                            console.log("Usuário cadastrado com sucesso!");
+                            console.log('Usuário cadastrado com sucesso!');
                             
                         })
                         .catch(function(error) {
-                            console.error("Erro ao cadastrar usuário: ", error);
+                            console.error('Erro ao cadastrar usuário: ', error);
                         });
+}
+
+function salvarImagem(id){
+    var imageRef = storage.ref().child('imagens');
 }
