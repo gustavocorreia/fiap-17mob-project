@@ -16,8 +16,8 @@ btnEntrar.addEventListener('click', function(e){
     }
 
     firebase.auth().signInWithEmailAndPassword(txtEmail.value, txtSenha.value)
-            .then(function (usuario) {
-                window.location = "inicio.html" 
+            .then(function (user) {
+                window.location.href = "inicio.html" 
             })
             .catch(function (exception) {
                 if (exception.code === 'auth/wrong-password') {

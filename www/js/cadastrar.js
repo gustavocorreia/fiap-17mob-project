@@ -3,6 +3,14 @@ import { S_IFMT } from "constants";
 var btnEntrar = document.getElementById('btnEntrar');
 var btnTirarFoto = document.getElementById('btnTirarFoto');
 
+window.onload(function(){
+    var user = firebase.auth().currentUser;
+
+    if(user){
+
+    }
+});
+
 btnTirarFoto.addEventListener('click', function(){
     navigator.camera.getPicture(onSuccess, onError, {  
         quality: 50, 
@@ -105,4 +113,15 @@ function completarCadastro(usuario, id){
 
 function salvarImagem(id){
     var imageRef = storage.ref().child('imagens');
+    var perfilRef = imageRef.child(`${id}.png`);
+
+    var imgFotoPerfil = document.getElementById('imgFotoPerfil');
+    
+    perfilRef.put(imgFotoPerfil.src)
+            .then(function(){
+                console.log('Upload realizado com sucesso!');
+            })
+            .catch(function(error){
+                console.error('Erro ao realizar o upload: ', error);
+            });
 }
